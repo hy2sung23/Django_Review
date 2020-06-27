@@ -1,2 +1,26 @@
-{% load static %}
-<img src = "{% static 'rainy.jpg' %}" height = 400 alt = "기본사진">
+<form action="" method="get">
+    <input type="text" name="q">
+    <input type="submit" value="검색">
+</form>
+{% for post in post_list %}
+<br><br><br>
+<tr>
+    <td>
+        {{ post.pk }}
+    </td>
+    <td>
+        {% if post.photo %}
+            <img src="{{ post.photo.url }}" style="width: 72px;" alt="">
+        {% else %}
+            No photo.
+        {% endif %}
+    </td>
+    <td>
+            {{ post.content }}
+        </a>
+    </td>
+    <td>
+        {{ post.created_at }}
+    </td>
+</tr>
+{% endfor %}
