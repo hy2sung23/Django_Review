@@ -1,6 +1,6 @@
 from django.http import Http404
 from django.shortcuts import render, get_object_or_404
-from django.views.generic import DetailView
+from django.views.generic import DetailView, ListView
 
 from .models import Post
 
@@ -66,3 +66,5 @@ class PostDetailView(DetailView):
 
 
 post_detail = PostDetailView.as_view()
+
+post_list = ListView.as_view(model=Post, paginate_by=10)

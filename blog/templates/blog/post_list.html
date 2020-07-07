@@ -16,11 +16,13 @@
         {% endif %}
     </td>
     <td>
-            {{ post.content }}
-        </a>
+        <a href="{{ post.get_absolute_url }}">{{ post.content }}</a>
     </td>
     <td>
         {{ post.created_at }}
     </td>
 </tr>
 {% endfor %}
+
+<br>
+{{page_obj}}
